@@ -7,8 +7,8 @@ get_header();
 
 $is_admin = true;
 
-$fixtures = display_matches( $is_admin, 0, 2015 );
-$results = display_matches( $is_admin, 1, 2015 );
+$fixtures = display_matches( $is_admin, 0, 2017 );
+$results = display_matches( $is_admin, 1, 2017 );
 
 ?>
 

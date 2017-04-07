@@ -16,6 +16,10 @@
 
 			<?php //get_latest_lotto(); ?>
 
+			<a href="https://www.klubfunder.com/Clubs/Garristown_GFC/Membership" style="margin-bottom: 10px; display: block;" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/membership.png">
+			</a>
+
 			<?php get_latest_uploads(); ?>
 
 		</div><!-- #secondary -->
