@@ -1,0 +1,808 @@
+@import (reference) 'mixins.less';
+
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+------------ MAP ------------
+
+01. GENERAL STYLES
+02. RESETS
+03. LAYOUT & GRID STYLES
+04. LINK STYLES
+05. H1, H2, H3, H4, H5 STYLES
+06. POSTS & CONTENT STYLES
+07. SITE SPECIFIC STYLES
+
+******************************************************************/
+
+/*********************
+03. LAYOUT & GRID STYLES
+*********************/
+
+.pull-left {
+		float: left;
+}
+
+.pull-right {
+		float: right;
+}
+
+.pull-center {
+		margin: 0 auto;
+}
+
+.text-left {
+		text-align: left;
+}
+
+.text-right {
+		text-align: right;
+}
+
+.text-center {
+		text-align: center;
+}
+
+@import 'includes/grid.less';
+
+
+/*********************
+04. LINK STYLES
+*********************/
+
+.site-content {
+	margin-top: 15px;
+}
+
+a, a:visited {
+	color: darken(@sky-blue, 20%);
+	.transition( color, 0.35s, ease-in-out );
+
+	&:hover {
+		color: @sky-blue;
+	}
+
+	&:link {
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+h1, h2, h3, h4, h5 {
+	color: @navy;
+	margin-top: 0;
+	float: left;
+	display: block;
+	width: 100%;
+	margin-bottom: 15px;
+
+	a {
+		color: darken(@sky-blue, 20%);
+		.transition( color, 0.35s, ease-in-out );
+
+		&:hover {
+			color: @sky-blue;
+		}
+	}
+}
+
+.site-header h1 a, .site-header h2 {
+		color: @navy;
+		.transition( color, 0.35s, ease-in-out );
+
+		&:hover {
+				color: @navy;
+		}
+}
+
+body {
+		float: left;
+		width: 100%;
+}
+
+hgroup {
+	padding-left: 20px;
+}
+
+.site-header h1 {
+		font-size: 2.2rem;
+		line-height: 1.3;
+		margin-bottom: 0;
+		margin-top: 14px;
+}
+
+.menu-primary-container {
+		background-color: @navy;
+		float: left;
+		width: 100%;
+		position: relative;
+		.box-shadow(0px, 0px, 40px, 30px, rgba(15, 38, 72, 0.5));
+
+		ul.nav-menu {
+				border: none !important;
+				max-width: 960px;
+				margin: 0 auto;
+		}
+}
+
+
+.main-navigation li {
+		float: left;
+		margin-right: 0;
+		text-align: center;
+		border-right: 1px solid @nav-border;
+		//border-top: 1px solid @nav-border;
+		//border-bottom: 1px solid @nav-border;
+
+		&:first-child {
+				border-left: 1px solid @nav-border;
+		}
+
+		a {
+				width: 100%;
+				color: #fff;
+				.transition( all, 0.35s, ease-in-out );
+				background-color: @navy;
+
+				&:hover {
+					background-color: darken(@sky-blue, 20%);
+					color: #fff;
+				}
+
+				&:before {
+						color: #fff;
+						content: attr(data-text);
+						position: absolute;
+						top: -3em;
+				}
+		}
+
+		&.current-menu-item {
+			a {
+				background-color: darken(@sky-blue, 20%);
+				color: #fff;
+			}
+		}
+}
+
+@media only screen and (min-width: 768px) {
+	.main-navigation li {
+		min-width: (100% / 6);
+	}
+}
+
+
+
+body {
+	background: @navy; /* Old browsers */
+	background: -moz-linear-gradient(left,  lighten(@navy, 20%) 0%, @sky-blue 14%, @sky-blue 50%, @sky-blue 86%, lighten(@navy, 20%) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,lighten(@navy, 20%)), color-stop(14%,@sky-blue), color-stop(50%,@sky-blue), color-stop(86%,@sky-blue), color-stop(100%,lighten(@navy, 20%))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  lighten(@navy, 20%) 0%,@sky-blue 14%,@sky-blue 50%,@sky-blue 86%,lighten(@navy, 20%) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  lighten(@navy, 20%) 0%,@sky-blue 14%,@sky-blue 50%,@sky-blue 86%,lighten(@navy, 20%) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  lighten(@navy, 20%) 0%,@sky-blue 14%,@sky-blue 50%,@sky-blue 86%,lighten(@navy, 20%) 100%); /* IE10+ */
+	background: linear-gradient(to right,  lighten(@navy, 20%) 0%,@sky-blue 14%,@sky-blue 50%,@sky-blue 86%,lighten(@navy, 20%) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='lighten(@navy, 20%)', endColorstr='lighten(@navy, 20%)',GradientType=1 ); /* IE6-9 */
+	padding: 0;
+}
+
+body .site {
+		padding: 0;
+		box-shadow: 0 2px 30px rgba(15, 38, 72, 0.5);
+		width: 100%;
+}
+
+#primary {
+	padding: 0 20px;
+	width: 100%;
+}
+
+#secondary {
+	width: 100%;
+	padding: 0 20px;
+}
+
+@media screen and (min-width: 600px) {
+	body.home #primary {
+		width: 65.1042%;
+	}
+
+	#secondary {
+		width: 33.3333%;
+	}
+}
+
+input[type="submit"], input[type="button"] {
+	background: @navy;
+	color: #fff;
+	.transition(all, 0.35s, ease-in-out);
+
+	&:hover {
+		background: darken(@sky-blue, 20%);
+		color: #fff;
+	}
+}
+
+.top-holder {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	position: relative;
+}
+
+.next-fixture-holder {
+	width: 100%;
+	max-width: 960px;
+	height: 10px;
+	margin: 0 auto;
+	position: relative;
+	pointer-events: none;
+	margin-top: 90px;
+}
+
+.next-fixture {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding-left: 20px;
+	padding-right: 10px;
+
+	h4 {
+		margin-bottom: 3px;
+		text-align: left;
+	}
+
+	ul {
+		height: auto;
+		float: left;
+		overflow: hidden;
+
+		li {
+			padding: 2px 0;
+			.transition(all, 2s, ease-in-out);
+			//color: darken(@sky-blue, 20%);
+			color: @navy;
+			font-weight: 700;
+				font-style: italic;
+		}
+	}
+
+	p {
+		text-align: left;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+
+	.next-fixture-holder {
+		margin-top: 0;
+	}
+
+	.next-fixture {
+		padding-left: 0;
+
+		h4 {
+			text-align: right;
+		}
+
+		ul {
+			float: right;
+			height: 18px;
+		}
+
+		p {
+			text-align: right;
+		}
+	}
+}
+
+
+
+.logo {
+		width: 120px;
+
+		img {
+				width: 100%;
+		}
+}
+
+#searchform {
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+	max-width: 320px;
+
+	input[type=text] {
+		border-color: @sky-blue;
+		width: 65%;
+		float: left;
+		margin-top: 1px;
+	}
+
+	input[type=submit] {
+		width: 34%;
+		float: left;
+		margin-left: 1%;
+	}
+}
+
+.site-header {
+		padding-top: 10px;
+		padding-bottom: 0px;
+		width: 100%;
+		float: left;
+		background-color: #fff;
+		position: relative;
+	margin-bottom: 15px;
+}
+
+.header-bg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0.2;
+		background: url('http://garristowngfc.com/wp-content/uploads/2013/09/slide1.png') no-repeat;
+		background-size: cover;
+		background-position: 100% 100%;
+}
+
+
+
+
+
+
+@font-face {
+		font-family: 'si';
+		src: url('fonts/socicon.eot');
+		src: url('fonts/socicon.eot?#iefix') format('embedded-opentype'),
+				url('fonts/socicon.woff') format('woff'),
+				url('fonts/socicon.ttf') format('truetype'),
+				url('fonts/socicon.svg#icomoonregular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+		@font-face {
+				font-family:si;
+				src: url(fonts/socicon.svg) format(svg);
+		}
+}
+
+.follow-us {
+	float: right;
+	background-color: white;
+	margin-top: -10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border: 1px solid darken(@sky-blue, 20%);
+	border-top: 0px;
+	display: none;
+
+	p	{
+		float: right;
+		margin-top: 20px;
+		margin-right: 10px;
+		font-style: italic;
+		font-size: 16px;
+		color: @navy;
+	}
+
+	ul {
+
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.follow-us {
+		display: block;
+	}
+}
+
+.soc {
+		overflow:hidden;
+		margin:0; padding:0;
+		list-style:none;
+		float: right;
+		margin-top: 15px;
+}
+
+.soc li {
+		display:inline-block;
+		*display:inline;
+		zoom:1;
+}
+
+.soc li a, .ssba a {
+//.soc li a, .entry-content:first-child .ssba a {
+		font-family:si!important;
+		font-style:normal;
+		font-weight:400;
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-ms-box-sizing:border-box;
+		-o-box-sizing:border-box;
+		box-sizing:border-box;
+		overflow:hidden;
+		text-decoration:none;
+		text-align:center;
+		display:block;
+		position: relative;
+		z-index: 1;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 16px;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		border-radius: 20px;
+		margin-right: 5px;
+		color: #ffffff;
+		background-color: none;
+
+		&:hover {
+				background-color: #fff;
+				color: @navy;
+				border: 2px solid;
+				line-height: 26px;
+		}
+}
+
+.soc-icon-last{
+		margin:0 !important;
+}
+
+.soc-facebook {
+		background-color: #3e5b98;
+}
+.soc-facebook:before {
+		content:'b';
+}
+.soc-youtube {
+		background-color: #e02a20;
+}
+.soc-youtube:before {
+		content:'r';
+}
+.soc-instagram {
+		background-color: #9c7c6e;
+}
+.soc-instagram:before {
+		content:'x';
+}
+.soc-twitter {
+		background-color: #4da7de;
+}
+.soc-twitter:before {
+		content:'a';
+}
+
+.entry-content .ssba {
+	margin-top: 15px;
+	margin-bottom: 5px;
+
+	a {
+		display: inline-block;
+		margin-right: 10px;
+		//border: 2px solid;
+		//line-height: 26px;
+
+		&.ssba_facebook_share {
+			background-color: #3e5b98;
+		}
+
+		&.ssba_facebook_share:before {
+			content:'b';
+		}
+
+		&.ssba_twitter_share {
+			background-color: #4da7de;
+		}
+
+		&.ssba_twitter_share:before {
+			content:'a';
+		}
+
+		&.ssba_email_share {
+			background-color: #7bb342;
+		}
+
+		&.ssba_email_share:before {
+			content:'<';
+		}
+
+		&:hover {
+			background-color: #fff;
+		}
+	}
+
+	img.ssba {
+		display: none !important;
+	}
+}
+
+
+article {
+	float: left;
+	position: relative;
+
+	.entry-header .entry-title {
+		margin-bottom: 10px;
+		font-size: 28px;
+	}
+}
+
+form.match-form, form.scrape-form {
+		width: 50%;
+		float: left;
+		margin-bottom: 20px;
+		padding-right: 50px;
+
+		input, select, label {
+				width: 100%;
+				font-size: 12px;
+
+		}
+
+		input, select {
+				margin-bottom: 10px;
+		}
+
+		select {
+				padding: 5px 0;
+				min-height: 32px;
+		}
+
+		input[type=submit] {
+				margin: 0 auto;
+				width: 30%;
+		}
+
+		a.back_to_add {
+				display: none;
+				margin-left: 10px;
+		}
+}
+
+form.scrape-form {
+	input, select {
+		width: 80%;
+	}
+
+	label {
+		width: 100%;
+		float: left;
+	}
+}
+
+.half-form {
+	width: 50%;
+	float: left;
+	padding-right: 10px;
+}
+
+
+.entry-content {
+	table {
+			float: left;
+	}
+
+	h2 {
+			margin-bottom: 10px;
+	}
+}
+
+.site-content article {
+	margin-bottom: 25px;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	hyphens: none;
+	padding-bottom: 0px;
+	width: 100%;
+}
+
+span.article-date {
+	font-style: italic;
+	color: @sky-blue;
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+}
+
+#footer-home {
+	float: left;
+	width: 100%;
+	background-color: @navy;
+
+	aside {
+		width: 100%;
+		float: left;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#footer-home {
+		aside {
+			width: 50%;
+		}
+	}
+}
+
+
+
+footer {
+	width: 100%;
+	float: left;
+	background: @navy;
+
+	.nav-menu {
+		margin-top: 20px !important;
+		float: left;
+		width: 100%;
+		background-color: #fff;
+		.column-count(2);
+		padding: 20px 20px;
+
+		li {
+			font-size: 16px;
+			padding: 5px 10px;
+			a { color: @navy; }
+		}
+	}
+
+	&.entry-meta {
+		background: #fff;
+	}
+}
+
+
+
+.facebook-holder, .twitter-holder {
+	border: 1px solid darken(@sky-blue, 20%);
+	background: #fff;
+	margin: 20px auto;
+	max-width: 420px;
+	height: 390px;
+	width: 100%;
+
+
+	h2 {
+		content: 'zzz';
+		//position: absolute;
+		width: 100%;
+		background-color: darken(@sky-blue, 20%);
+		color: #fff;
+		padding: 6px 15px;
+		margin-bottom: 0;
+	}
+
+	.feed-holder {
+		padding: 20px;
+		height: 330px;
+		float: left;
+		width: 100%;
+		background: #fff;
+	}
+}
+
+.sidebar-section {
+		border: 2px solid @sky-blue;
+		box-shadow: 1px 1px 1px 1px @navy;
+		.border-radius(4px);
+		float: left;
+		width: 100%;
+		padding: 20px;
+		margin-bottom: 30px;
+
+		h3 {
+				margin-bottom: 0;
+		}
+
+		a {
+			line-height: 1.2em;
+		}
+}
+
+.latest-lotto {
+	background: url('../images/lotto.jpg') no-repeat #011132;
+
+	h3 {
+		color: #fff;
+	}
+
+	li {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		line-height: 20px;
+		text-align: center;
+		border: 5px solid #fff;
+		background-color: #fff;
+		margin: 10px 0;
+		margin-right: 5px;
+		color: @navy;
+		.border-radius(15px);
+		font-weight: 700;
+	}
+
+	a {
+		text-decoration: none;
+		color: #fff;
+		line-height: 1.5em;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.latest-uploads {
+	//background: url('http://www.graphicssimplified.com/wp-content/uploads/2015/04/upload-cloud.png') no-repeat;
+	//background-size: contain;
+
+	h3 {
+		margin-bottom: 10px;
+		margin-top: 20px;
+
+		&:first-child {
+			margin-top: 0px;
+		}
+	}
+
+	li {
+		float: left;
+		list-style-position: inside;
+
+		a {
+			&:before {
+				margin-right: 5px;
+				content: url('../images/pdf.png');
+			}
+		}
+	}
+
+	p {
+		margin-top: 15px;
+		float: left;
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.advanced-slider .slide-wrapper {
+	width: 100% !important;
+}
+
+.main-navigation .sub-menu {
+		li {
+			border: 0;
+			a {
+				background-color: #0f2648;
+				color: #fff;
+			}
+				&:hover a {
+						background-color: #2494e2;
+						color: #fff;
+				}
+		}
+}
+

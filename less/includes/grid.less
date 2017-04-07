@@ -1,0 +1,41 @@
+// Grid construction based on Twitter Bootstrap
+
+// Specify number of columns
+@number-of-columns: 12;
+
+// Functions for generating column layout and width
+.generate-column-widths(@n, @bp, @i: 1) when (@i =< @n) {
+  .col-@{bp}-@{i} {
+    width: (@i * 100% / @n);
+  }
+    
+  .generate-column-widths(@n, @bp, (@i + 1));
+}
+
+.generate-column-layout(@n, @i: 1) when (@i =< @n) {
+  
+  .col-xs-@{i}, .col-sm-@{i}, .col-md-@{i}, .col-lg-@{i} {
+    position: relative;
+    min-height: 1px;
+    float: left;
+  }
+    
+  .generate-column-layout(@n, (@i + 1));
+}
+
+
+// Generate those columns!!!
+.generate-column-layout(@number-of-columns);
+.generate-column-widths(@number-of-columns, xs);
+
+@media (min-width: 768px) {
+  .generate-column-widths(@number-of-columns, sm);
+}
+
+@media (min-width: 1030px) {
+  .generate-column-widths(@number-of-columns, md);
+}
+
+@media (min-width: 1240px) {
+  .generate-column-widths(@number-of-columns, lg);
+}
